@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0k6x1jw8gn7f"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_jwqpr"]
+[ext_resource type="Texture2D" uid="uid://c8qpctksed72d" path="res://assets/placeHolder_Player/placeHolder_JumpEntry.png" id="2_od727"]
+[ext_resource type="Texture2D" uid="uid://ijai51ir4neq" path="res://assets/placeHolder_Player/placeholder_Player.png" id="3_1b83c"]
+[ext_resource type="Texture2D" uid="uid://cluqa4n3j16jr" path="res://assets/placeHolder_Player/placeHolder_JumpFinish.png" id="4_tiic8"]
+[ext_resource type="Texture2D" uid="uid://lnsrdbx7t8hn" path="res://assets/placeHolder_Player/placeHolder_JumpHigh.png" id="5_kg3an"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="6_5h8vu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53rmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_od727")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1b83c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tiic8")
+}],
+"loop": true,
+"name": &"jump_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kg3an")
+}],
+"loop": true,
+"name": &"jump_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1b83c")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfetn"]
+radius = 77.0
+height = 156.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("joystick_left")]
+position = Vector2(600, 300)
+script = ExtResource("1_jwqpr")
+joystick_left = NodePath("")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_53rmx")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.631729
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -2)
+shape = SubResource("CapsuleShape2D_kfetn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-600, -300)
+anchor_mode = 0
+
+[node name="UI" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Virtual joystick left" parent="Camera2D/UI" instance=ExtResource("6_5h8vu")]
+metadata/_edit_use_anchors_ = true
