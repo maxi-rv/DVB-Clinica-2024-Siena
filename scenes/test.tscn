@@ -1,88 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq2sqb1u1l5ve"]
+[gd_scene load_steps=5 format=3 uid="uid://bq2sqb1u1l5ve"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_cgcrm"]
-[ext_resource type="Texture2D" uid="uid://ijai51ir4neq" path="res://assets/placeHolder_Player/placeholder_Player.png" id="2_i5rm1"]
-[ext_resource type="Texture2D" uid="uid://c8qpctksed72d" path="res://assets/placeHolder_Player/placeHolder_JumpEntry.png" id="2_qugdl"]
-[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="3_jmdpa"]
+[ext_resource type="PackedScene" uid="uid://c5ye3m87s86sj" path="res://scenes/demo_music.tscn" id="1_maudg"]
+[ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
 [ext_resource type="Texture2D" uid="uid://80u76ybv8ktm" path="res://assets/platform.png" id="4_bqtt3"]
-[ext_resource type="Texture2D" uid="uid://cluqa4n3j16jr" path="res://assets/placeHolder_Player/placeHolder_JumpFinish.png" id="4_fekr2"]
-[ext_resource type="Texture2D" uid="uid://lnsrdbx7t8hn" path="res://assets/placeHolder_Player/placeHolder_JumpHigh.png" id="5_y7ikd"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_53rmx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_qugdl")
-}],
-"loop": true,
-"name": &"crouch",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_i5rm1")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_fekr2")
-}],
-"loop": true,
-"name": &"jump_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_y7ikd")
-}],
-"loop": true,
-"name": &"jump_up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_i5rm1")
-}],
-"loop": true,
-"name": &"move",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfetn"]
-radius = 77.0
-height = 156.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyja"]
 size = Vector2(390, 41)
 
 [node name="Test" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("joystick_left")]
-position = Vector2(600, 300)
-script = ExtResource("1_cgcrm")
-joystick_left = NodePath("Camera2D/UI/Virtual joystick left")
+[node name="DemoMusic" parent="." instance=ExtResource("1_maudg")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = SubResource("SpriteFrames_53rmx")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.631729
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(4, -2)
-shape = SubResource("CapsuleShape2D_kfetn")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-600, -300)
-anchor_mode = 0
-
-[node name="UI" type="CanvasLayer" parent="Player/Camera2D"]
-
-[node name="Virtual joystick left" parent="Player/Camera2D/UI" instance=ExtResource("3_jmdpa")]
-metadata/_edit_use_anchors_ = true
+[node name="Player" parent="." instance=ExtResource("2_i5teq")]
 
 [node name="Platforms" type="Node2D" parent="."]
 
