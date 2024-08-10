@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 # Should change to "const" after adjusting the gameplay?
 @export var speed : float = 500
-@export var jump_velocity : float = -750
-@export var jump_modifier_Up : float = 1 # Higher value could help with "floaty" feeling.
+@export var jump_velocity : float = -1000
+@export var jump_modifier_Up : float = 1.5 # Higher value could help with "floaty" feeling.
 @export var jump_modifier_down : float = 3 # Affects gravity ONLY when inputing "Down" on a jump.
 
 ## Reference to the left joystick for input.
