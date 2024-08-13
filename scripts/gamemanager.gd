@@ -11,3 +11,7 @@ func change_player_hp(new_hp: int) -> void:
 		player_hp = 0 
 	# Emit the signal with the updated HP value	
 	emit_signal("hp_changed", player_hp)	
+
+func loadLevel(scene_name: String) -> void:
+	var scene_path = "res://scenes/"+str(scene_name)+".tscn"
+	get_tree().change_scene_to_file(scene_path)

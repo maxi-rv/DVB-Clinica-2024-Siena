@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dvb-clinica-2024-siena"
-run/main_scene="res://scenes/test.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
