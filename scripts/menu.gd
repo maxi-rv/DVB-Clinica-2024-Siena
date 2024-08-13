@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	pass # Replace with function body.
+	Gamemanager.loadLevel("level1")
 
 
 func _on_credits_pressed():
