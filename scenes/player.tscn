@@ -51,8 +51,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfetn"]
-radius = 77.0
-height = 156.0
+radius = 47.0
+height = 162.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(600, 300)
@@ -60,9 +60,8 @@ script = ExtResource("1_jwqpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53rmx")
-animation = &"idle"
+animation = &"crouch"
 autoplay = "idle"
-frame_progress = 0.631729
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -2)
@@ -70,7 +69,7 @@ shape = SubResource("CapsuleShape2D_kfetn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(6, -4)
-limit_bottom = 800
+limit_bottom = 900
 
 [node name="UI" type="CanvasLayer" parent="Camera2D"]
 
