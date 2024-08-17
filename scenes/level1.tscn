@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq2sqb1u1l5ve"]
+[gd_scene load_steps=6 format=3 uid="uid://bq2sqb1u1l5ve"]
 
 [ext_resource type="PackedScene" uid="uid://crfjsqtytbfgi" path="res://scenes/demo_music.tscn" id="1_maudg"]
 [ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
 [ext_resource type="PackedScene" uid="uid://hsy2d783flps" path="res://scenes/platform.tscn" id="3_w124i"]
+[ext_resource type="PackedScene" uid="uid://1hbir3rqmpvb" path="res://scenes/collectable.tscn" id="4_dfynq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7n31"]
 
@@ -24,3 +25,9 @@ position = Vector2(0, 800)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World Limits/BottomLimit"]
 shape = SubResource("WorldBoundaryShape2D_f7n31")
+
+[node name="Collectable" parent="." instance=ExtResource("4_dfynq")]
+position = Vector2(1238, 670)
+
+[node name="Collectable2" parent="." instance=ExtResource("4_dfynq")]
+position = Vector2(606, 677)
