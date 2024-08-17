@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0k6x1jw8gn7f"]
+[gd_scene load_steps=10 format=3 uid="uid://b0k6x1jw8gn7f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jwqpr"]
 [ext_resource type="Texture2D" uid="uid://c8qpctksed72d" path="res://assets/sprites/placeHolder_Player/placeHolder_JumpEntry.png" id="2_od727"]
 [ext_resource type="Texture2D" uid="uid://ijai51ir4neq" path="res://assets/sprites/placeHolder_Player/placeholder_Player.png" id="3_1b83c"]
+[ext_resource type="Texture2D" uid="uid://btkkitmgp0c6x" path="res://assets/sprites/placeHolder_Player/placeHolder_Hurt.png" id="3_y4ydd"]
 [ext_resource type="Texture2D" uid="uid://cluqa4n3j16jr" path="res://assets/sprites/placeHolder_Player/placeHolder_JumpFinish.png" id="4_tiic8"]
 [ext_resource type="Texture2D" uid="uid://lnsrdbx7t8hn" path="res://assets/sprites/placeHolder_Player/placeHolder_JumpHigh.png" id="5_kg3an"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="6_5h8vu"]
@@ -15,6 +16,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y4ydd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y4ydd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y4ydd")
+}],
+"loop": false,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -60,7 +75,7 @@ script = ExtResource("1_jwqpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53rmx")
-animation = &"crouch"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -69,7 +84,7 @@ shape = SubResource("CapsuleShape2D_kfetn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(6, -4)
-limit_bottom = 900
+limit_bottom = 1024
 
 [node name="UI" type="CanvasLayer" parent="Camera2D"]
 
