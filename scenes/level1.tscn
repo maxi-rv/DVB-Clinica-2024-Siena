@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq2sqb1u1l5ve"]
+[gd_scene load_steps=9 format=3 uid="uid://bq2sqb1u1l5ve"]
 
 [ext_resource type="PackedScene" uid="uid://crfjsqtytbfgi" path="res://scenes/demo_music.tscn" id="1_maudg"]
 [ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
-[ext_resource type="PackedScene" uid="uid://hsy2d783flps" path="res://scenes/platform.tscn" id="3_w124i"]
-[ext_resource type="PackedScene" uid="uid://1hbir3rqmpvb" path="res://scenes/collectable.tscn" id="4_dfynq"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7n31"]
+[ext_resource type="PackedScene" uid="uid://c5rfmxic0vt3r" path="res://scenes/platforms/platform_d.tscn" id="3_tldfx"]
+[ext_resource type="PackedScene" uid="uid://c4qcxwd31njya" path="res://scenes/platforms/platform_a.tscn" id="4_tbn8v"]
+[ext_resource type="PackedScene" uid="uid://yhlbi3vs0tyx" path="res://scenes/platforms/platform_b.tscn" id="5_gmts1"]
+[ext_resource type="PackedScene" uid="uid://b2awnev8wdlb2" path="res://scenes/platforms/platform_c.tscn" id="6_xes47"]
+[ext_resource type="PackedScene" uid="uid://cv301la4fkkfa" path="res://scenes/platforms/world_bottom_limit.tscn" id="7_17jmh"]
+[ext_resource type="PackedScene" uid="uid://1hbir3rqmpvb" path="res://scenes/collectable.tscn" id="8_i7h3f"]
 
 [node name="Test" type="Node2D"]
 position = Vector2(0, 7)
@@ -14,20 +16,37 @@ position = Vector2(0, 7)
 
 [node name="Player" parent="." instance=ExtResource("2_i5teq")]
 
-[node name="Platforms" type="Node2D" parent="."]
+[node name="Platforms" type="Node" parent="."]
 
-[node name="Platform" parent="Platforms" instance=ExtResource("3_w124i")]
+[node name="Platform" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(614, 674)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("4_tbn8v")]
+position = Vector2(1226, 537)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("5_gmts1")]
+position = Vector2(1595, 283)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(3044, 666)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("6_xes47")]
+position = Vector2(2269, 462)
 
 [node name="World Limits" type="Node" parent="."]
 
-[node name="BottomLimit" type="StaticBody2D" parent="World Limits"]
-position = Vector2(0, 800)
+[node name="BottomLimit" parent="World Limits" instance=ExtResource("7_17jmh")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World Limits/BottomLimit"]
-shape = SubResource("WorldBoundaryShape2D_f7n31")
+[node name="Collectables" type="Node" parent="."]
 
-[node name="Collectable" parent="." instance=ExtResource("4_dfynq")]
-position = Vector2(1238, 670)
+[node name="Collectable" parent="Collectables" instance=ExtResource("8_i7h3f")]
+position = Vector2(1232, 343)
 
-[node name="Collectable2" parent="." instance=ExtResource("4_dfynq")]
-position = Vector2(606, 677)
+[node name="Collectable2" parent="Collectables" instance=ExtResource("8_i7h3f")]
+position = Vector2(1629, 89)
+
+[node name="Collectable3" parent="Collectables" instance=ExtResource("8_i7h3f")]
+position = Vector2(2296, 254)
+
+[node name="Collectable4" parent="Collectables" instance=ExtResource("8_i7h3f")]
+position = Vector2(3099, 483)
