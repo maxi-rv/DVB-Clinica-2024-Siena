@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://crfjsqtytbfgi" path="res://scenes/demo_music.tscn" id="1_maudg"]
 [ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
-[ext_resource type="PackedScene" uid="uid://hsy2d783flps" path="res://scenes/platform.tscn" id="3_w124i"]
+[ext_resource type="PackedScene" uid="uid://hsy2d783flps" path="res://scenes/platforms/platform.tscn" id="3_w124i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7n31"]
 
