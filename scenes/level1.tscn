@@ -62,6 +62,8 @@ position = Vector2(3099, 483)
 [node name="Mine" parent="Obstacles/Node" instance=ExtResource("9_1yxo5")]
 position = Vector2(1899, -316)
 rotation = -1.50447
+linear_damp_mode = 1
+angular_damp_mode = 1
 
 [node name="chain" type="Sprite2D" parent="Obstacles/Node/Mine"]
 show_behind_parent = true
