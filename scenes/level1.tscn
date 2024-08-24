@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq2sqb1u1l5ve"]
+[gd_scene load_steps=16 format=3 uid="uid://bq2sqb1u1l5ve"]
 
 [ext_resource type="PackedScene" uid="uid://crfjsqtytbfgi" path="res://scenes/demo_music.tscn" id="1_maudg"]
 [ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://1hbir3rqmpvb" path="res://scenes/collectable.tscn" id="8_i7h3f"]
 [ext_resource type="PackedScene" uid="uid://bxyiv3473imnt" path="res://scenes/obstacles/mine.tscn" id="9_1yxo5"]
 [ext_resource type="Texture2D" uid="uid://b2r53yjoo3t1f" path="res://assets/sprites/deco/deco_chain_grey.png" id="10_rxl5x"]
+[ext_resource type="Texture2D" uid="uid://cb3hoks3634ly" path="res://assets/sprites/backgrounds/Esculturas_a.png" id="11_gf2rt"]
+[ext_resource type="Texture2D" uid="uid://dda2ihk24bpe" path="res://assets/sprites/backgrounds/Esculturas_b.png" id="12_6ffrw"]
+[ext_resource type="Texture2D" uid="uid://cc4eu6a2e7bbi" path="res://assets/sprites/backgrounds/Fondo_Desierto_a.png" id="13_50dcq"]
+[ext_resource type="Texture2D" uid="uid://c7y15k3k07pgb" path="res://assets/sprites/backgrounds/Fondo_Desierto_b.png" id="14_1wv8l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvdht"]
 
@@ -19,48 +23,143 @@ position = Vector2(0, 7)
 [node name="DemoMusic" parent="." instance=ExtResource("1_maudg")]
 
 [node name="Player" parent="." instance=ExtResource("2_i5teq")]
+position = Vector2(587, 350)
 
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("3_tldfx")]
-position = Vector2(614, 674)
+position = Vector2(614, 888)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("4_tbn8v")]
-position = Vector2(1226, 537)
+position = Vector2(1226, 751)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("5_gmts1")]
-position = Vector2(1595, 283)
+position = Vector2(1595, 497)
 
 [node name="Platform4" parent="Platforms" instance=ExtResource("3_tldfx")]
-position = Vector2(3044, 666)
+position = Vector2(3044, 880)
 
 [node name="Platform5" parent="Platforms" instance=ExtResource("6_xes47")]
-position = Vector2(2269, 462)
+position = Vector2(2269, 676)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(3769, 976)
+
+[node name="Platform7" parent="Platforms" instance=ExtResource("4_tbn8v")]
+position = Vector2(4381, 839)
+
+[node name="Platform8" parent="Platforms" instance=ExtResource("5_gmts1")]
+position = Vector2(4750, 585)
+
+[node name="Platform9" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(6199, 968)
+
+[node name="Platform10" parent="Platforms" instance=ExtResource("6_xes47")]
+position = Vector2(5424, 764)
+
+[node name="Platform11" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(6913, 1064)
+
+[node name="Platform12" parent="Platforms" instance=ExtResource("4_tbn8v")]
+position = Vector2(7525, 927)
+
+[node name="Platform13" parent="Platforms" instance=ExtResource("5_gmts1")]
+position = Vector2(7894, 673)
+
+[node name="Platform14" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(9343, 1056)
+
+[node name="Platform15" parent="Platforms" instance=ExtResource("6_xes47")]
+position = Vector2(8568, 852)
+
+[node name="Platform16" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(10167, 1064)
+
+[node name="Platform17" parent="Platforms" instance=ExtResource("4_tbn8v")]
+position = Vector2(10779, 927)
+
+[node name="Platform18" parent="Platforms" instance=ExtResource("5_gmts1")]
+position = Vector2(11148, 673)
+
+[node name="Platform19" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(12597, 1056)
+
+[node name="Platform20" parent="Platforms" instance=ExtResource("6_xes47")]
+position = Vector2(11822, 852)
+
+[node name="Platform21" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(13367, 1064)
+
+[node name="Platform22" parent="Platforms" instance=ExtResource("4_tbn8v")]
+position = Vector2(13979, 927)
+
+[node name="Platform23" parent="Platforms" instance=ExtResource("5_gmts1")]
+position = Vector2(14348, 673)
+
+[node name="Platform24" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(15797, 1056)
+
+[node name="Platform25" parent="Platforms" instance=ExtResource("6_xes47")]
+position = Vector2(15022, 852)
+
+[node name="Platform26" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(16743, 1080)
+
+[node name="Platform27" parent="Platforms" instance=ExtResource("4_tbn8v")]
+position = Vector2(17355, 943)
+
+[node name="Platform28" parent="Platforms" instance=ExtResource("5_gmts1")]
+position = Vector2(17724, 689)
+
+[node name="Platform29" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(19173, 1072)
+
+[node name="Platform30" parent="Platforms" instance=ExtResource("6_xes47")]
+position = Vector2(18398, 868)
+
+[node name="Platform31" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(20231, 1096)
+
+[node name="Platform32" parent="Platforms" instance=ExtResource("4_tbn8v")]
+position = Vector2(20843, 959)
+
+[node name="Platform33" parent="Platforms" instance=ExtResource("5_gmts1")]
+position = Vector2(21212, 705)
+
+[node name="Platform34" parent="Platforms" instance=ExtResource("3_tldfx")]
+position = Vector2(22661, 1088)
+
+[node name="Platform35" parent="Platforms" instance=ExtResource("6_xes47")]
+position = Vector2(21886, 884)
 
 [node name="World Limits" type="Node" parent="."]
 
 [node name="BottomLimit" parent="World Limits" instance=ExtResource("7_17jmh")]
+position = Vector2(0, 1360)
 
 [node name="Collectables" type="Node" parent="."]
 
 [node name="Collectable" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(1232, 343)
+position = Vector2(1232, 550)
 
 [node name="Collectable2" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(1629, 89)
+position = Vector2(1629, 296)
 
 [node name="Collectable3" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(2296, 254)
+position = Vector2(2296, 461)
 
 [node name="Collectable4" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(3099, 483)
+position = Vector2(3099, 690)
+
+[node name="Collectable5" parent="Collectables" instance=ExtResource("8_i7h3f")]
+position = Vector2(22715, 850)
 
 [node name="Obstacles" type="Node" parent="."]
 
 [node name="Node" type="Node" parent="Obstacles"]
 
 [node name="Mine" parent="Obstacles/Node" instance=ExtResource("9_1yxo5")]
-position = Vector2(1899, -316)
+position = Vector2(7202, 290)
 rotation = -1.50447
 linear_damp_mode = 1
 angular_damp_mode = 1
@@ -73,16 +172,64 @@ texture = ExtResource("10_rxl5x")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
-[node name="Ancor" type="StaticBody2D" parent="Obstacles/Node"]
-position = Vector2(1108, -198)
+[node name="Anchor" type="StaticBody2D" parent="Obstacles/Node"]
+position = Vector2(6411, 408)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Node/Ancor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Node/Anchor"]
 position = Vector2(384, -159)
 shape = SubResource("CircleShape2D_rvdht")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Obstacles/Node"]
-position = Vector2(1492, -425)
-node_a = NodePath("../Ancor")
+position = Vector2(6795, 181)
+node_a = NodePath("../Anchor")
 node_b = NodePath("../Mine")
 angular_limit_enabled = true
 angular_limit_upper = 3.14159
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(9259, 0)
+
+[node name="Fondo_Desierto_b" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("14_1wv8l")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(0, 192)
+motion_mirroring = Vector2(9259, 0)
+
+[node name="FondoDesiertoA" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("13_50dcq")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(0, 280)
+motion_mirroring = Vector2(7617, 0)
+
+[node name="EsculturasB" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(0, 7)
+texture = ExtResource("12_6ffrw")
+centered = false
+
+[node name="EsculturasB2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(7617, 7)
+texture = ExtResource("12_6ffrw")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(5786, 0)
+
+[node name="EsculturasA" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(0, 7)
+texture = ExtResource("11_gf2rt")
+centered = false
+
+[node name="EsculturasA2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(5786, 7)
+texture = ExtResource("11_gf2rt")
+centered = false

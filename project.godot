@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 Gamemanager="*res://scripts/gamemanager.gd"
 
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
