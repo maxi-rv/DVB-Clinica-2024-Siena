@@ -1,73 +1,115 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0k6x1jw8gn7f"]
+[gd_scene load_steps=22 format=3 uid="uid://b0k6x1jw8gn7f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jwqpr"]
-[ext_resource type="Texture2D" uid="uid://c8qpctksed72d" path="res://assets/sprites/placeHolder_Player/placeHolder_JumpEntry.png" id="2_od727"]
-[ext_resource type="Texture2D" uid="uid://ijai51ir4neq" path="res://assets/sprites/placeHolder_Player/placeholder_Player.png" id="3_1b83c"]
-[ext_resource type="Texture2D" uid="uid://btkkitmgp0c6x" path="res://assets/sprites/placeHolder_Player/placeHolder_Hurt.png" id="3_y4ydd"]
-[ext_resource type="Texture2D" uid="uid://cluqa4n3j16jr" path="res://assets/sprites/placeHolder_Player/placeHolder_JumpFinish.png" id="4_tiic8"]
-[ext_resource type="Texture2D" uid="uid://lnsrdbx7t8hn" path="res://assets/sprites/placeHolder_Player/placeHolder_JumpHigh.png" id="5_kg3an"]
+[ext_resource type="Texture2D" uid="uid://cgmx5werj0oyu" path="res://assets/sprites/player/jump/salto_1.png" id="2_o3jbb"]
+[ext_resource type="Texture2D" uid="uid://p6ih73o0c5fi" path="res://assets/sprites/player/hurt/hurt_1.png" id="3_dush6"]
+[ext_resource type="Texture2D" uid="uid://ctyr30y5qqax5" path="res://assets/sprites/player/idle/idle_0.png" id="4_ij6ge"]
+[ext_resource type="Texture2D" uid="uid://c7ovihb8kaq15" path="res://assets/sprites/player/idle/idle_1.png" id="5_cd2cb"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="6_5h8vu"]
+[ext_resource type="Texture2D" uid="uid://b52vco2xv55m5" path="res://assets/sprites/player/idle/idle_2.png" id="6_x06wn"]
+[ext_resource type="Texture2D" uid="uid://dgjmtjr5p2yu2" path="res://assets/sprites/player/idle/idle_3.png" id="7_fxhnm"]
+[ext_resource type="Texture2D" uid="uid://bupbvhkte6lki" path="res://assets/sprites/player/idle/idle_4.png" id="8_h30dg"]
+[ext_resource type="Texture2D" uid="uid://b4un1r3yqchok" path="res://assets/sprites/player/idle/idle_5.png" id="9_flbu5"]
+[ext_resource type="Texture2D" uid="uid://17u6qxg24pqx" path="res://assets/sprites/player/jump/salto_3.png" id="10_xwuqe"]
+[ext_resource type="Texture2D" uid="uid://d22f11uhsqu60" path="res://assets/sprites/player/jump/salto_4.png" id="11_4sy5w"]
+[ext_resource type="Texture2D" uid="uid://o5nlbjpfo3yh" path="res://assets/sprites/player/jump/salto_2.png" id="12_2nd5g"]
+[ext_resource type="Texture2D" uid="uid://dgjvi4b6m00ef" path="res://assets/sprites/player/walk/camiar_0.png" id="13_keyi7"]
+[ext_resource type="Texture2D" uid="uid://cnwr43p42ivn7" path="res://assets/sprites/player/walk/camiar_1.png" id="14_q80gr"]
+[ext_resource type="Texture2D" uid="uid://dxpgc6qo06aar" path="res://assets/sprites/player/walk/camiar_2.png" id="15_suk6s"]
+[ext_resource type="Texture2D" uid="uid://bk627lsf6umdc" path="res://assets/sprites/player/walk/camiar_3.png" id="16_uxjpi"]
+[ext_resource type="Texture2D" uid="uid://s3gmwi0yk8rd" path="res://assets/sprites/player/walk/camiar_4.png" id="17_i5k5y"]
+[ext_resource type="Texture2D" uid="uid://chsb7kvxpy1tg" path="res://assets/sprites/player/walk/camiar_5.png" id="18_f83n4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_53rmx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_od727")
+"texture": ExtResource("2_o3jbb")
 }],
 "loop": true,
 "name": &"crouch",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_y4ydd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_y4ydd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_y4ydd")
+"texture": ExtResource("3_dush6")
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_1b83c")
+"texture": ExtResource("4_ij6ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cd2cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x06wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fxhnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h30dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_flbu5")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_tiic8")
+"texture": ExtResource("10_xwuqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4sy5w")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_down",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_kg3an")
+"texture": ExtResource("12_2nd5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xwuqe")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_up",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_1b83c")
+"texture": ExtResource("13_keyi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_q80gr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_suk6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_uxjpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i5k5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_f83n4")
 }],
 "loop": true,
 "name": &"move",
-"speed": 5.0
+"speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfetn"]
-radius = 47.0
-height = 162.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag7r3"]
+radius = 42.0
+height = 212.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(600, 300)
@@ -75,12 +117,13 @@ script = ExtResource("1_jwqpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53rmx")
-animation = &"hurt"
+animation = &"move"
 autoplay = "idle"
+frame_progress = 0.379758
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -2)
-shape = SubResource("CapsuleShape2D_kfetn")
+position = Vector2(0, 21)
+shape = SubResource("CapsuleShape2D_ag7r3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(6, -4)
@@ -90,9 +133,13 @@ limit_bottom = 1360
 [node name="UI" type="CanvasLayer" parent="Camera2D"]
 
 [node name="Virtual joystick left" parent="Camera2D/UI" instance=ExtResource("6_5h8vu")]
-offset_left = 40.0
-offset_top = -340.0
-offset_right = 340.0
-offset_bottom = -40.0
+anchors_preset = -1
+anchor_left = -0.263
+anchor_right = -0.263
+offset_left = 0.280029
+offset_top = -1080.0
+offset_right = 3230.28
+offset_bottom = -1.0
 joystick_mode = 1
+visibility_mode = 2
 metadata/_edit_use_anchors_ = true

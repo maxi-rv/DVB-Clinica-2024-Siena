@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 # Should change to "const" after adjusting the gameplay?
-@export var speed : float = 500
-@export var jump_velocity : float = -1000
-@export var jump_modifier_Up : float = 1.5 # Higher value could help with "floaty" feeling.
-@export var jump_modifier_down : float = 3 # Affects gravity ONLY when inputing "Down" on a jump.
+var speed : float = 700
+var jump_velocity : float = -1350 # Consider this the true "jump strength" setting.
+# This values modify gravity as multipliers while jumping.
+var jump_mod_normal : float = 2 # Higher value could help with "floaty" feeling, if player sprite is too big.
+var jump_mod_inputdown : float = 4 # Affects gravity ONLY when inputing "Down" on a jump, to help control ascending faster.
 
 ## Reference to the left joystick for input.
 @export var joystick_left : VirtualJoystick
@@ -19,6 +20,10 @@ var jumpInput_Threshold : float = 0
 var downInput_Threshold : float = 0
 ## Input direction. Left or Right. From -1 to 1.
 var directionInput : float = 0
+
+# Jump animation flags. Blocks script from calling the same animation multiple times.
+var jumpingUp : bool = false
+var jumpingDown : bool = false
 
 # Called during the physics processing step of the main loop. 
 # Physics processing means that the frame rate is synced to the physics, 
@@ -36,10 +41,17 @@ func handle_animations():
 	elif directionInput < 0:
 		animated_sprite.flip_h = true
 	
+	# Resets jump animation flags.
+	if is_on_floor():
+		jumpingDown = false
+		jumpingUp = false
+	
 	# Movement and jumping animations		
-	if not is_on_floor() and velocity.y<0:
+	if not is_on_floor() and velocity.y<0 and not jumpingUp:
+		jumpingUp = true
 		animated_sprite.play("jump_up")
-	elif not is_on_floor() and velocity.y>0.1:
+	elif not is_on_floor() and velocity.y>0.1 and not jumpingDown:
+		jumpingDown = true
 		animated_sprite.play("jump_down")		
 	elif is_on_floor() and not velocity.x==0:
 		animated_sprite.play("move")
@@ -58,9 +70,9 @@ func handle_movement_input(delta: float):
 	
 	# Handles shorting the Jump velocity by increasing the gravity.
 	if not is_on_floor() and downInput_Threshold>0.5:
-		velocity.y += gravity * delta * jump_modifier_down
+		velocity.y += gravity * delta * jump_mod_inputdown
 	elif not is_on_floor():
-		velocity.y += gravity * delta * jump_modifier_Up
+		velocity.y += gravity * delta * jump_mod_normal
 	
 	# Handles jump input.
 	if jumpInput_Threshold>0.75 and is_on_floor():
