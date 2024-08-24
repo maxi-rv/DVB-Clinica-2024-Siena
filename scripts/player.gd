@@ -21,6 +21,8 @@ var downInput_Threshold : float = 0
 ## Input direction. Left or Right. From -1 to 1.
 var directionInput : float = 0
 
+var isDead = false
+
 # Jump animation flags. Blocks script from calling the same animation multiple times.
 var jumpingUp : bool = false
 var jumpingDown : bool = false
@@ -29,8 +31,9 @@ var jumpingDown : bool = false
 # Physics processing means that the frame rate is synced to the physics, 
 # i.e. the delta variable should be constant. delta is in seconds.
 func _physics_process(delta):
-	handle_animations()
-	handle_movement_input(delta)
+	if not isDead:
+		handle_animations()
+		handle_movement_input(delta)
 	
 
 ## (Almost) All animations based on the current movement forces being executed.

@@ -1,13 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://b0k6x1jw8gn7f"]
+[gd_scene load_steps=27 format=3 uid="uid://b0k6x1jw8gn7f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jwqpr"]
 [ext_resource type="Texture2D" uid="uid://cgmx5werj0oyu" path="res://assets/sprites/player/jump/salto_1.png" id="2_o3jbb"]
 [ext_resource type="Texture2D" uid="uid://p6ih73o0c5fi" path="res://assets/sprites/player/hurt/hurt_1.png" id="3_dush6"]
 [ext_resource type="Texture2D" uid="uid://ctyr30y5qqax5" path="res://assets/sprites/player/idle/idle_0.png" id="4_ij6ge"]
+[ext_resource type="Texture2D" uid="uid://jqduqmi83rwp" path="res://assets/sprites/player/death/morir_0.png" id="4_mnaoq"]
 [ext_resource type="Texture2D" uid="uid://c7ovihb8kaq15" path="res://assets/sprites/player/idle/idle_1.png" id="5_cd2cb"]
+[ext_resource type="Texture2D" uid="uid://u6k1h3pxvj0x" path="res://assets/sprites/player/death/morir_1.png" id="5_s8bfv"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="6_5h8vu"]
+[ext_resource type="Texture2D" uid="uid://c48dlmj05nue8" path="res://assets/sprites/player/death/morir_2.png" id="6_asayv"]
 [ext_resource type="Texture2D" uid="uid://b52vco2xv55m5" path="res://assets/sprites/player/idle/idle_2.png" id="6_x06wn"]
 [ext_resource type="Texture2D" uid="uid://dgjmtjr5p2yu2" path="res://assets/sprites/player/idle/idle_3.png" id="7_fxhnm"]
+[ext_resource type="Texture2D" uid="uid://de2sir86sbv0b" path="res://assets/sprites/player/death/morir_3.png" id="7_v3mnx"]
+[ext_resource type="Texture2D" uid="uid://brvmo0ho18lm2" path="res://assets/sprites/player/death/morir_4.png" id="8_dsrlv"]
 [ext_resource type="Texture2D" uid="uid://bupbvhkte6lki" path="res://assets/sprites/player/idle/idle_4.png" id="8_h30dg"]
 [ext_resource type="Texture2D" uid="uid://b4un1r3yqchok" path="res://assets/sprites/player/idle/idle_5.png" id="9_flbu5"]
 [ext_resource type="Texture2D" uid="uid://17u6qxg24pqx" path="res://assets/sprites/player/jump/salto_3.png" id="10_xwuqe"]
@@ -33,10 +38,25 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_dush6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mnaoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s8bfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_asayv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v3mnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dsrlv")
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -113,13 +133,16 @@ height = 212.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(600, 300)
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_jwqpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53rmx")
-animation = &"move"
+animation = &"hurt"
 autoplay = "idle"
-frame_progress = 0.379758
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 21)
