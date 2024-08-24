@@ -10,6 +10,8 @@ radius = 119.067
 radius = 120.507
 
 [node name="Mine" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_8kf3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

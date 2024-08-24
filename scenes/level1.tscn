@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq2sqb1u1l5ve"]
+[gd_scene load_steps=14 format=3 uid="uid://bq2sqb1u1l5ve"]
 
 [ext_resource type="PackedScene" uid="uid://crfjsqtytbfgi" path="res://scenes/demo_music.tscn" id="1_maudg"]
 [ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
@@ -8,22 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://b2awnev8wdlb2" path="res://scenes/platforms/platform_c.tscn" id="6_xes47"]
 [ext_resource type="PackedScene" uid="uid://cv301la4fkkfa" path="res://scenes/platforms/world_bottom_limit.tscn" id="7_17jmh"]
 [ext_resource type="PackedScene" uid="uid://1hbir3rqmpvb" path="res://scenes/collectable.tscn" id="8_i7h3f"]
-[ext_resource type="PackedScene" uid="uid://bxyiv3473imnt" path="res://scenes/obstacles/mine.tscn" id="9_1yxo5"]
-[ext_resource type="Texture2D" uid="uid://b2r53yjoo3t1f" path="res://assets/sprites/deco/deco_chain_grey.png" id="10_rxl5x"]
+[ext_resource type="PackedScene" uid="uid://dr6i3uh2ung20" path="res://scenes/obstacles/swinging_mine.tscn" id="8_r0ftk"]
 [ext_resource type="Texture2D" uid="uid://cb3hoks3634ly" path="res://assets/sprites/backgrounds/Esculturas_a.png" id="11_gf2rt"]
 [ext_resource type="Texture2D" uid="uid://dda2ihk24bpe" path="res://assets/sprites/backgrounds/Esculturas_b.png" id="12_6ffrw"]
 [ext_resource type="Texture2D" uid="uid://cc4eu6a2e7bbi" path="res://assets/sprites/backgrounds/Fondo_Desierto_a.png" id="13_50dcq"]
 [ext_resource type="Texture2D" uid="uid://c7y15k3k07pgb" path="res://assets/sprites/backgrounds/Fondo_Desierto_b.png" id="14_1wv8l"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rvdht"]
-
 [node name="Test" type="Node2D"]
 position = Vector2(0, 7)
 
-[node name="DemoMusic" parent="." instance=ExtResource("1_maudg")]
-
 [node name="Player" parent="." instance=ExtResource("2_i5teq")]
-position = Vector2(587, 350)
+position = Vector2(592, 569)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -140,51 +135,36 @@ position = Vector2(0, 1360)
 [node name="Collectables" type="Node" parent="."]
 
 [node name="Collectable" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(1232, 550)
+position = Vector2(1594, 322)
 
 [node name="Collectable2" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(1629, 296)
+position = Vector2(3047, 700)
 
 [node name="Collectable3" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(2296, 461)
+position = Vector2(6906, 861)
 
 [node name="Collectable4" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(3099, 690)
+position = Vector2(9735, 600)
 
 [node name="Collectable5" parent="Collectables" instance=ExtResource("8_i7h3f")]
 position = Vector2(22715, 850)
 
 [node name="Obstacles" type="Node" parent="."]
 
-[node name="Node" type="Node" parent="Obstacles"]
+[node name="SwingingMine" parent="Obstacles" instance=ExtResource("8_r0ftk")]
+position = Vector2(7022, 274)
 
-[node name="Mine" parent="Obstacles/Node" instance=ExtResource("9_1yxo5")]
-position = Vector2(7202, 290)
-rotation = -1.50447
-linear_damp_mode = 1
-angular_damp_mode = 1
+[node name="SwingingMine2" parent="Obstacles" instance=ExtResource("8_r0ftk")]
+position = Vector2(712, 919)
 
-[node name="chain" type="Sprite2D" parent="Obstacles/Node/Mine"]
-show_behind_parent = true
-position = Vector2(0.972168, -166.43)
-scale = Vector2(1, 5)
-texture = ExtResource("10_rxl5x")
-region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
+[node name="SwingingMine3" parent="Obstacles" instance=ExtResource("8_r0ftk")]
+position = Vector2(2341, 711)
 
-[node name="Anchor" type="StaticBody2D" parent="Obstacles/Node"]
-position = Vector2(6411, 408)
+[node name="SwingingMine4" parent="Obstacles" instance=ExtResource("8_r0ftk")]
+position = Vector2(4449, 877)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Node/Anchor"]
-position = Vector2(384, -159)
-shape = SubResource("CircleShape2D_rvdht")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Obstacles/Node"]
-position = Vector2(6795, 181)
-node_a = NodePath("../Anchor")
-node_b = NodePath("../Mine")
-angular_limit_enabled = true
-angular_limit_upper = 3.14159
+[node name="SwingingMine5" parent="Obstacles" instance=ExtResource("8_r0ftk")]
+position = Vector2(5547, -25)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -197,7 +177,7 @@ texture = ExtResource("14_1wv8l")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.25, 0.25)
 motion_offset = Vector2(0, 192)
 motion_mirroring = Vector2(9259, 0)
 
@@ -233,3 +213,5 @@ centered = false
 position = Vector2(5786, 7)
 texture = ExtResource("11_gf2rt")
 centered = false
+
+[node name="DemoMusic" parent="." instance=ExtResource("1_maudg")]

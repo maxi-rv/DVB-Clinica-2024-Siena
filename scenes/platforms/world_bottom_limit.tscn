@@ -6,6 +6,8 @@
 
 [node name="BottomLimit" type="Area2D"]
 position = Vector2(0, 1024)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_mqxra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

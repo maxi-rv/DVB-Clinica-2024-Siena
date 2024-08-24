@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr6i3uh2ung20"]
+
+[ext_resource type="PackedScene" uid="uid://bxyiv3473imnt" path="res://scenes/obstacles/mine.tscn" id="1_rnro4"]
+[ext_resource type="Texture2D" uid="uid://b2r53yjoo3t1f" path="res://assets/sprites/deco/deco_chain_grey.png" id="2_onp28"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvdht"]
+
+[node name="SwingingMine" type="Node2D"]
+
+[node name="Mine" parent="." instance=ExtResource("1_rnro4")]
+position = Vector2(328, 25)
+rotation = -1.50447
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="chain" type="Sprite2D" parent="Mine"]
+visible = false
+show_behind_parent = true
+position = Vector2(0.972168, -166.43)
+scale = Vector2(1, 5)
+texture = ExtResource("2_onp28")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Anchor" type="StaticBody2D" parent="."]
+position = Vector2(-383, 161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor"]
+position = Vector2(384, -159)
+shape = SubResource("CircleShape2D_rvdht")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(1, -66)
+node_a = NodePath("../Anchor")
+node_b = NodePath("../Mine")
+angular_limit_enabled = true
+angular_limit_upper = 3.14159
