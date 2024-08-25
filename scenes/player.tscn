@@ -158,7 +158,7 @@ limit_bottom = 1360
 [node name="Virtual joystick left" parent="Camera2D/UI" instance=ExtResource("6_5h8vu")]
 anchors_preset = -1
 anchor_left = -0.263
-anchor_right = -0.263
+anchor_right = -0.878625
 offset_left = 0.280029
 offset_top = -1080.0
 offset_right = 3230.28

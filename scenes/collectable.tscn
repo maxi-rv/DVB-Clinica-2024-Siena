@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://1hbir3rqmpvb"]
+[gd_scene load_steps=14 format=3 uid="uid://1hbir3rqmpvb"]
 
 [ext_resource type="Script" path="res://scripts/collectable.gd" id="1_nvvpu"]
 [ext_resource type="Texture2D" uid="uid://beu4af4b2nyu5" path="res://assets/sprites/items/item_abcd_spritesheet.png" id="2_vhao2"]
+[ext_resource type="Texture2D" uid="uid://d1x7o1in86dal" path="res://assets/sprites/coin-1.png" id="3_dxgn3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itkyf"]
 atlas = ExtResource("2_vhao2")
@@ -22,10 +23,6 @@ region = Rect2(615, 0, 205, 155)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vo5s"]
 atlas = ExtResource("2_vhao2")
 region = Rect2(615, 0, 205, 155)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7aln6"]
-atlas = ExtResource("2_vhao2")
-region = Rect2(0, 0, 205, 155)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywyit"]
 animations = [{
@@ -51,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7aln6")
+"texture": ExtResource("3_dxgn3")
 }],
 "loop": true,
 "name": &"idle",
@@ -59,17 +56,50 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kstvj"]
-radius = 65.123
+radius = 70.0071
+
+[sub_resource type="Animation" id="Animation_qjsnj"]
+resource_name = "floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 5), Vector2(0, -5), Vector2(0, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_te32o"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y43ba"]
+_data = {
+"RESET": SubResource("Animation_te32o"),
+"floating": SubResource("Animation_qjsnj")
+}
 
 [node name="Collectable" type="Area2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_nvvpu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.02764)
 sprite_frames = SubResource("SpriteFrames_ywyit")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kstvj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y43ba")
+}
+autoplay = "floating"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
