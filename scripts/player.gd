@@ -76,6 +76,12 @@ func handle_movement_input(delta: float):
 	# Gets input direction. Left or Right.
 	directionInput = Input.get_axis("ui_left","ui_right")
 	
+	# "Normalizes" directionInput to maintain constant forces.
+	if directionInput > 0.1:
+		directionInput = 1
+	elif directionInput < 0.1:
+		directionInput = -1
+	
 	# Handles shorting the Jump velocity by increasing the gravity.
 	if not is_on_floor() and downInput_Threshold>0.5:
 		velocity.y += gravity * delta * jump_mod_inputdown
