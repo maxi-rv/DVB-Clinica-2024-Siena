@@ -6,7 +6,7 @@ const speedFixed : float = 700
 var jump_velocity : float = -1350 # Consider this the true "jump strength" setting.
 # This values modify gravity as multipliers while jumping.
 var jump_mod_normal : float = 2 # Higher value could help with "floaty" feeling, if player sprite is too big.
-var jump_mod_inputdown : float = 4 # Affects gravity ONLY when inputing "Down" on a jump, to help control ascending faster.
+var jump_mod_inputdown : float = 5 # Affects gravity ONLY when inputing "Down" on a jump, to help control ascending faster.
 
 ## Reference to the left joystick for input.
 @export var joystick_left : VirtualJoystick
@@ -24,9 +24,10 @@ var directionInput : float = 0
 
 var isDead = false
 
-# Jump animation flags. Blocks script from calling the same animation multiple times.
+# Animation flags. Blocks script from calling the same animation multiple times.
 var jumpingUp : bool = false
 var jumpingDown : bool = false
+var attackFalling : bool = false
 
 # Called during the physics processing step of the main loop. 
 # Physics processing means that the frame rate is synced to the physics, 
@@ -49,14 +50,17 @@ func handle_animations():
 	if is_on_floor():
 		jumpingDown = false
 		jumpingUp = false
+		attackFalling = false
 	
 	# Movement and jumping animations		
-	if not is_on_floor() and velocity.y<0 and not jumpingUp:
+	if not is_on_floor() and velocity.y<0 and not jumpingUp and not attackFalling:
 		jumpingUp = true
 		animated_sprite.play("jump_up")
-	elif not is_on_floor() and velocity.y>0.1 and not jumpingDown:
+	elif not is_on_floor() and velocity.y>0.1 and not jumpingDown and not attackFalling:
 		jumpingDown = true
-		animated_sprite.play("jump_down")		
+		animated_sprite.play("jump_down")
+	elif not is_on_floor() and attackFalling:
+		animated_sprite.play("attack") 		
 	elif is_on_floor() and not velocity.x==0:
 		animated_sprite.play("move")
 	elif is_on_floor() and velocity.x==0:
@@ -72,9 +76,16 @@ func handle_movement_input(delta: float):
 	# Gets input direction. Left or Right.
 	directionInput = Input.get_axis("ui_left","ui_right")
 	
+	# "Normalizes" directionInput to maintain constant forces.
+	if directionInput > 0.1:
+		directionInput = 1
+	elif directionInput < 0.1:
+		directionInput = -1
+	
 	# Handles shorting the Jump velocity by increasing the gravity.
 	if not is_on_floor() and downInput_Threshold>0.5:
 		velocity.y += gravity * delta * jump_mod_inputdown
+		attackFalling = true
 	elif not is_on_floor():
 		velocity.y += gravity * delta * jump_mod_normal
 	
