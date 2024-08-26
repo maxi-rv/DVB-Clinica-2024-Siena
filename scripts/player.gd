@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 # Should change to "const" after adjusting the gameplay?
-var speed : float = 700
+var speed: float = 700
+const speedFixed : float = 700
 var jump_velocity : float = -1350 # Consider this the true "jump strength" setting.
 # This values modify gravity as multipliers while jumping.
 var jump_mod_normal : float = 2 # Higher value could help with "floaty" feeling, if player sprite is too big.
@@ -78,16 +79,21 @@ func handle_movement_input(delta: float):
 		velocity.y += gravity * delta * jump_mod_normal
 	
 	# Handles jump input.
-	if jumpInput_Threshold>0.75 and is_on_floor():
+	if jumpInput_Threshold>0.5 and is_on_floor():
 		velocity.y = jump_velocity
 	
 	# Handles crouching or movement, CAN'T do both. Also idling.
-	if downInput_Threshold>0.75 and is_on_floor():
+	if downInput_Threshold>0.5 and is_on_floor():
 		velocity.x = move_toward(0, 0, 0)
 		animated_sprite.play("crouch")
 	else:
+		# Changes speed if player is on air to increase air movility.
+		if is_on_floor():
+			speed = speedFixed
+		else:
+			speed = speedFixed*1.2
 		# Applies movement.
-		if directionInput:
+		if directionInput != 0:
 			velocity.x = directionInput * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
