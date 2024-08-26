@@ -79,7 +79,7 @@ func handle_movement_input(delta: float):
 	# "Normalizes" directionInput to maintain constant forces.
 	if directionInput > 0.1:
 		directionInput = 1
-	elif directionInput < 0.1:
+	elif directionInput < -0.1:
 		directionInput = -1
 	
 	# Handles shorting the Jump velocity by increasing the gravity.
