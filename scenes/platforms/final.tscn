@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2qmhnwe5rtlf"]
+
+[ext_resource type="Texture2D" uid="uid://bolvjgpvvwcjv" path="res://assets/sprites/backgrounds/final.png" id="1_drstp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i4tj"]
+size = Vector2(2705, 131)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_44owj"]
+a = Vector2(696, 505)
+b = Vector2(482, 505)
+
+[node name="Final" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_drstp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 668.5)
+shape = SubResource("RectangleShape2D_3i4tj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_44owj")
+one_way_collision = true

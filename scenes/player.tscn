@@ -152,9 +152,9 @@ script = ExtResource("1_jwqpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53rmx")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.972423
+frame_progress = 0.34144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 21)
@@ -163,6 +163,7 @@ shape = SubResource("CapsuleShape2D_ag7r3")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(6, -4)
 limit_top = 0
+limit_right = 26356
 limit_bottom = 1360
 
 [node name="UI" type="CanvasLayer" parent="Camera2D"]
