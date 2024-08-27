@@ -127,54 +127,54 @@ position = Vector2(22658, 886)
 position = Vector2(23754, 1221)
 
 [node name="Collectable7" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(13311, 162)
+position = Vector2(13311, 347)
 
 [node name="Collectable8" parent="Collectables" instance=ExtResource("8_i7h3f")]
 position = Vector2(15313, 732)
 
 [node name="Collectable9" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(19729, 340)
+position = Vector2(19765, 481)
 
 [node name="Obstacles" type="Node" parent="."]
 
 [node name="SwingingMine2" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(644, 1027)
+position = Vector2(615, 960)
 
 [node name="SwingingMine3" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(2308, 788)
+position = Vector2(2278, 740)
 
 [node name="SwingingMine4" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(4417, 767)
+position = Vector2(4405, 757)
 
 [node name="SwingingMine5" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(6978, 285)
+position = Vector2(6918, 305)
 
 [node name="SwingingMine" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(9767, 476)
+position = Vector2(9741, 484)
 
 [node name="SwingingMine6" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(12653, 1075)
+position = Vector2(12643, 998)
 
 [node name="SwingingMine7" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(11861, 645)
+position = Vector2(11821, 665)
 
 [node name="SwingingMine8" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(18429, 667)
+position = Vector2(18442, 557)
 
 [node name="SwingingMine9" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(19776, 487)
+position = Vector2(19765, 487)
 
 [node name="SwingingMine10" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(21152, 802)
+position = Vector2(21190, 701)
 
 [node name="SwingingMine11" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(8663, 100)
+position = Vector2(8566, 109)
 
 [node name="SwingingMine12" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(16442, 692)
+position = Vector2(16646, 633)
 
 [node name="SwingingMine13" parent="Obstacles" instance=ExtResource("8_r0ftk")]
-position = Vector2(15005, 109)
+position = Vector2(14954, 202)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
