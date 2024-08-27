@@ -66,7 +66,6 @@ func handle_animations():
 	elif is_on_floor() and velocity.x==0:
 		animated_sprite.play("idle")
 
-
 ## Controls the player movement and actions, based on input.
 func handle_movement_input(delta: float):
 	# Gets jump input, by reading the "ui_up" axis only.

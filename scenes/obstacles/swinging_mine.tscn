@@ -1,39 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr6i3uh2ung20"]
+[gd_scene load_steps=6 format=3 uid="uid://dr6i3uh2ung20"]
 
-[ext_resource type="PackedScene" uid="uid://bxyiv3473imnt" path="res://scenes/obstacles/mine.tscn" id="1_rnro4"]
-[ext_resource type="Texture2D" uid="uid://b2r53yjoo3t1f" path="res://assets/sprites/deco/deco_chain_grey.png" id="2_onp28"]
+[ext_resource type="Script" path="res://scripts/enemy_b.gd" id="1_3e255"]
+[ext_resource type="Texture2D" uid="uid://cvr4132l7w8ae" path="res://assets/sprites/enemies/bola.png" id="1_jvghh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8shss"]
+radius = 52.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hwjws"]
+radius = 106.075
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvdht"]
 
 [node name="SwingingMine" type="Node2D"]
 
-[node name="Mine" parent="." instance=ExtResource("1_rnro4")]
-position = Vector2(328, 25)
-rotation = -1.50447
-linear_damp_mode = 1
-angular_damp_mode = 1
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(222, 0)
+rotation = -1.5708
+script = ExtResource("1_3e255")
 
-[node name="chain" type="Sprite2D" parent="Mine"]
-visible = false
-show_behind_parent = true
-position = Vector2(0.972168, -166.43)
-scale = Vector2(1, 5)
-texture = ExtResource("2_onp28")
-region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 118)
+shape = SubResource("CircleShape2D_8shss")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_jvghh")
+
+[node name="KillZone" type="Area2D" parent="RigidBody2D"]
+position = Vector2(0, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/KillZone"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_hwjws")
+debug_color = Color(0.992157, 0, 0.266667, 0.419608)
+
+[node name="Timer" type="Timer" parent="RigidBody2D/KillZone"]
 
 [node name="Anchor" type="StaticBody2D" parent="."]
-position = Vector2(-383, 161)
 collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor"]
-position = Vector2(384, -159)
 shape = SubResource("CircleShape2D_rvdht")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(1, -66)
 node_a = NodePath("../Anchor")
-node_b = NodePath("../Mine")
+node_b = NodePath("../RigidBody2D")
 angular_limit_enabled = true
+angular_limit_lower = -3.14159
 angular_limit_upper = 3.14159
+
+[connection signal="body_entered" from="RigidBody2D/KillZone" to="RigidBody2D" method="_on_kill_zone_body_entered"]
+[connection signal="timeout" from="RigidBody2D/KillZone/Timer" to="RigidBody2D" method="_on_timer_timeout"]
