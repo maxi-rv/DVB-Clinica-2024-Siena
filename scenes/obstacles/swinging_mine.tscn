@@ -16,6 +16,8 @@ radius = 106.075
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(222, 0)
 rotation = -1.5708
+linear_damp_mode = 1
+angular_damp_mode = 1
 script = ExtResource("1_3e255")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
