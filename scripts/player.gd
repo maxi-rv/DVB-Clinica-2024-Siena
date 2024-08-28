@@ -16,7 +16,7 @@ var jump_mod_inputdown : float = 5 # Affects gravity ONLY when inputing "Down" o
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 ## Jump input, by reading the "ui_up" axis only. From 0 to 1.
-var jumpInput_Threshold : float = 0
+var jumpInput : bool = false
 ## "Jump Down"/Crouch input, by reading the "ui_down" axis only. From 0 to 1.
 var downInput_Threshold : float = 0
 ## Input direction. Left or Right. From -1 to 1.
@@ -69,7 +69,7 @@ func handle_animations():
 ## Controls the player movement and actions, based on input.
 func handle_movement_input(delta: float):
 	# Gets jump input, by reading the "ui_up" axis only.
-	jumpInput_Threshold = Input.get_action_strength("ui_up")
+	jumpInput = Input.is_action_pressed("player_action")
 	# Gets "jump down"/crouching input, by reading the "ui_down" axis only.
 	downInput_Threshold = Input.get_action_strength("ui_down")
 	# Gets input direction. Left or Right.
@@ -89,7 +89,7 @@ func handle_movement_input(delta: float):
 		velocity.y += gravity * delta * jump_mod_normal
 	
 	# Handles jump input.
-	if jumpInput_Threshold>0.5 and is_on_floor():
+	if jumpInput and is_on_floor():
 		velocity.y = jump_velocity
 	
 	# Handles crouching or movement, CAN'T do both. Also idling.
