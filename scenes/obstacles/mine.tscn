@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4d5aokeji6ct" path="res://assets/sprites/enemies/enemy_a.png" id="2_ys873"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_em6p7"]
-radius = 119.067
+radius = 74.0068
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xn0h7"]
 radius = 120.507
@@ -15,7 +15,7 @@ collision_mask = 2
 script = ExtResource("1_8kf3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 0)
+position = Vector2(-15, -6)
 shape = SubResource("CircleShape2D_em6p7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,7 +24,7 @@ texture = ExtResource("2_ys873")
 [node name="KillZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
-position = Vector2(-7, -1)
+position = Vector2(-9, 1)
 shape = SubResource("CircleShape2D_xn0h7")
 debug_color = Color(0.992157, 0, 0.266667, 0.419608)
 
