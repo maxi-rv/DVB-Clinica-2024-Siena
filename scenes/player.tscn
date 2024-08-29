@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b0k6x1jw8gn7f"]
+[gd_scene load_steps=28 format=3 uid="uid://b0k6x1jw8gn7f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jwqpr"]
 [ext_resource type="Texture2D" uid="uid://bypt41g0ebxed" path="res://assets/sprites/player/fallingAttack/golpe-caida_1.png" id="2_46an7"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://jqduqmi83rwp" path="res://assets/sprites/player/death/morir_0.png" id="4_mnaoq"]
 [ext_resource type="Texture2D" uid="uid://c7ovihb8kaq15" path="res://assets/sprites/player/idle/idle_1.png" id="5_cd2cb"]
 [ext_resource type="Texture2D" uid="uid://u6k1h3pxvj0x" path="res://assets/sprites/player/death/morir_1.png" id="5_s8bfv"]
-[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="6_5h8vu"]
 [ext_resource type="Texture2D" uid="uid://c48dlmj05nue8" path="res://assets/sprites/player/death/morir_2.png" id="6_asayv"]
 [ext_resource type="Texture2D" uid="uid://b52vco2xv55m5" path="res://assets/sprites/player/idle/idle_2.png" id="6_x06wn"]
 [ext_resource type="Texture2D" uid="uid://dgjmtjr5p2yu2" path="res://assets/sprites/player/idle/idle_3.png" id="7_fxhnm"]
@@ -145,7 +144,6 @@ radius = 42.0
 height = 212.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(600, 300)
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_jwqpr")
@@ -159,23 +157,3 @@ frame_progress = 0.34144
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 21)
 shape = SubResource("CapsuleShape2D_ag7r3")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(6, -4)
-limit_top = 0
-limit_right = 26356
-limit_bottom = 1360
-
-[node name="UI" type="CanvasLayer" parent="Camera2D"]
-
-[node name="Virtual joystick left" parent="Camera2D/UI" instance=ExtResource("6_5h8vu")]
-anchors_preset = -1
-anchor_left = -0.263781
-anchor_right = -0.263781
-offset_left = 0.280029
-offset_top = -1080.0
-offset_right = 1694.28
-offset_bottom = -1.0
-joystick_mode = 1
-visibility_mode = 2
-metadata/_edit_use_anchors_ = true

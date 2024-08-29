@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://27s8vh2askna"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_qd5xg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3md0u"]
+size = Vector2(1280, 1080)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Virtual joystick left" parent="." instance=ExtResource("1_qd5xg")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -1280.0
+offset_top = -540.0
+offset_right = 0.0
+offset_bottom = 540.0
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+joystick_mode = 1
+visibility_mode = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(640, 0)
+shape = SubResource("RectangleShape2D_3md0u")
+action = "player_action"
