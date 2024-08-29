@@ -16,7 +16,7 @@ func _physics_process(delta):
 		animated_sprite_2d.visible = false
 
 func _on_body_entered(body):
-	# TODO: Call gamemanager!
+	Gamemanager.score_change(1) # Score Increase
 	collision_shape_2d.disabled = true
 	animated_sprite_2d.play("break")
 	readyToRemove = true

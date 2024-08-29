@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq2sqb1u1l5ve"]
+[gd_scene load_steps=18 format=3 uid="uid://bq2sqb1u1l5ve"]
 
 [ext_resource type="PackedScene" uid="uid://crfjsqtytbfgi" path="res://scenes/demo_music.tscn" id="1_maudg"]
 [ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cc4eu6a2e7bbi" path="res://assets/sprites/backgrounds/Fondo_Desierto_a.png" id="13_50dcq"]
 [ext_resource type="Texture2D" uid="uid://c7y15k3k07pgb" path="res://assets/sprites/backgrounds/Fondo_Desierto_b.png" id="14_1wv8l"]
 [ext_resource type="PackedScene" uid="uid://c2qmhnwe5rtlf" path="res://scenes/platforms/final.tscn" id="14_ln686"]
+[ext_resource type="Texture2D" uid="uid://d1x7o1in86dal" path="res://assets/sprites/coin-1.png" id="15_odu2b"]
+[ext_resource type="Script" path="res://scripts/scorelabel.gd" id="16_mocud"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qyrjb"]
 
@@ -234,3 +236,48 @@ position = Vector2(1356, 0)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_qyrjb")
 one_way_collision = true
+
+[node name="Score UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Score UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Score UI/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Score UI/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Score UI/Control/MarginContainer/HBoxContainer"]
+position = Vector2(37, 41)
+scale = Vector2(0.437853, 0.437853)
+texture = ExtResource("15_odu2b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Score UI/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 90
+
+[node name="Label" type="Label" parent="Score UI/Control/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "/"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Score UI/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 10
+
+[node name="ScoreLabel" type="Label" parent="Score UI/Control/MarginContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
+script = ExtResource("16_mocud")
