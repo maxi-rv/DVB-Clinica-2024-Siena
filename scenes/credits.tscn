@@ -49,7 +49,7 @@ theme_override_constants/margin_bottom = 30
 [node name="TeamLabel" type="Label" parent="VScrollBar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
-text = "Equipo Siena"
+text = "Iron Dream"
 horizontal_alignment = 1
 
 [node name="MarginContainer4" type="MarginContainer" parent="VScrollBar/VBoxContainer"]
