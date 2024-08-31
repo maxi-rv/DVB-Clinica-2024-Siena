@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://sop46wcuu4ht"]
+[gd_scene load_steps=4 format=3 uid="uid://sop46wcuu4ht"]
 
 [ext_resource type="Script" path="res://credits_scene.gd" id="1_ki1uq"]
+
+[sub_resource type="Curve" id="Curve_fetau"]
+_data = [Vector2(0.893471, 0.0443709), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_gnjvw"]
+curve = SubResource("Curve_fetau")
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -13,6 +20,11 @@ offset_right = -836.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(379.5, 534.25)
+scale = Vector2(9.89453, 1069.5)
+texture = SubResource("CurveTexture_gnjvw")
 
 [node name="VScrollBar" type="ScrollContainer" parent="."]
 clip_contents = false
