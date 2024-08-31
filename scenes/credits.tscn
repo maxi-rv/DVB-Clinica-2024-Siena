@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://sop46wcuu4ht"]
+
+[ext_resource type="Script" path="res://credits_scene.gd" id="1_ki1uq"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 896.0
+offset_top = 4.0
+offset_right = -836.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VScrollBar" type="ScrollContainer" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ki1uq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VScrollBar"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TeamLabel" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Equipo Siena"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SectionLabel" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Programadores"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Maximiliano Riquelme"
+horizontal_alignment = 1
+
+[node name="NameLabel2" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Agustin Cristobo"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SectionLabel2" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Arte"
+horizontal_alignment = 1
+
+[node name="NameLabel3" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Ale Almeyra"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SectionLabel3" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Musica"
+horizontal_alignment = 1
+
+[node name="NameLabel4" type="Label" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Ignacio Liberman"
+horizontal_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="VScrollBar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30

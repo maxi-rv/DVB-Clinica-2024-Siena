@@ -16,7 +16,7 @@ func _on_start_pressed():
 
 
 func _on_credits_pressed():
-	pass # Replace with function body.
+	Gamemanager.loadLevel("credits")
 
 
 func _on_quit_pressed():
