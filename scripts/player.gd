@@ -36,6 +36,8 @@ func _physics_process(delta):
 	if not isDead:
 		handle_animations()
 		handle_movement_input(delta)
+	else:
+		Gamemanager.reset_score()
 	
 
 ## (Almost) All animations based on the current movement forces being executed.

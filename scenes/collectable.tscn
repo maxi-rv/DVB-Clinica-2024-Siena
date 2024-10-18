@@ -1,51 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://1hbir3rqmpvb"]
+[gd_scene load_steps=8 format=3 uid="uid://1hbir3rqmpvb"]
 
 [ext_resource type="Script" path="res://scripts/collectable.gd" id="1_nvvpu"]
-[ext_resource type="Texture2D" uid="uid://beu4af4b2nyu5" path="res://assets/sprites/items/item_abcd_spritesheet.png" id="2_vhao2"]
 [ext_resource type="Texture2D" uid="uid://d1x7o1in86dal" path="res://assets/sprites/coin-1.png" id="3_dxgn3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_itkyf"]
-atlas = ExtResource("2_vhao2")
-region = Rect2(0, 0, 205, 155)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5l8k"]
-atlas = ExtResource("2_vhao2")
-region = Rect2(205, 0, 205, 155)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mt40"]
-atlas = ExtResource("2_vhao2")
-region = Rect2(410, 0, 205, 155)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ev7i6"]
-atlas = ExtResource("2_vhao2")
-region = Rect2(615, 0, 205, 155)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0vo5s"]
-atlas = ExtResource("2_vhao2")
-region = Rect2(615, 0, 205, 155)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywyit"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_itkyf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m5l8k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3mt40")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ev7i6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0vo5s")
-}],
-"loop": false,
-"name": &"break",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_dxgn3")

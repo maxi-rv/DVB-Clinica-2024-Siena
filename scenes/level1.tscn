@@ -122,6 +122,9 @@ position = Vector2(20900, 633)
 [node name="Collectable" parent="Collectables" instance=ExtResource("8_i7h3f")]
 position = Vector2(1594, 322)
 
+[node name="Collectable10" parent="Collectables" instance=ExtResource("8_i7h3f")]
+position = Vector2(346, 716)
+
 [node name="Collectable2" parent="Collectables" instance=ExtResource("8_i7h3f")]
 position = Vector2(3026, 685)
 
