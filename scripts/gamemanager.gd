@@ -22,8 +22,8 @@ func loadLevel(scene_name: String) -> void:
 func score_change(new_score: int) -> void:
 	score += new_score
 	# Signal emitted with the updated score
-	emit_signal("score_changed", score)
+	emit_signal("score_changed", score, true)
 	
 func reset_score() -> void:
 	score = 0
-	emit_signal("score_changed", score)
+	emit_signal("score_changed", score, false)
