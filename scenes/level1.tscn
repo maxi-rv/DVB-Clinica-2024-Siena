@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bq2sqb1u1l5ve"]
+[gd_scene load_steps=26 format=3 uid="uid://bq2sqb1u1l5ve"]
 
 [ext_resource type="PackedScene" uid="uid://crfjsqtytbfgi" path="res://scenes/demo_music.tscn" id="1_maudg"]
 [ext_resource type="PackedScene" uid="uid://b0k6x1jw8gn7f" path="res://scenes/player.tscn" id="2_i5teq"]
@@ -16,9 +16,27 @@
 [ext_resource type="PackedScene" uid="uid://c2qmhnwe5rtlf" path="res://scenes/platforms/final.tscn" id="14_ln686"]
 [ext_resource type="Texture2D" uid="uid://d1x7o1in86dal" path="res://assets/sprites/coin-1.png" id="15_odu2b"]
 [ext_resource type="Script" path="res://scripts/scorelabel.gd" id="16_mocud"]
+[ext_resource type="AudioStream" uid="uid://bcia52lxubb84" path="res://assets/sfxs/pickup1.wav" id="17_armi2"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="17_mqok5"]
+[ext_resource type="AudioStream" uid="uid://bc0o6h456bmn8" path="res://assets/sfxs/pickup2.wav" id="18_oqtxi"]
+[ext_resource type="AudioStream" uid="uid://bc4y4xpcw11qo" path="res://assets/sfxs/pickup3.wav" id="19_d3v6m"]
+[ext_resource type="AudioStream" uid="uid://cj38c308txhq5" path="res://assets/sfxs/pickup4.wav" id="20_01x3j"]
+[ext_resource type="AudioStream" uid="uid://b16frb7u1l6yt" path="res://assets/sfxs/pickup5.wav" id="21_rp46d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qyrjb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_565q6"]
+streams_count = 5
+stream_0/stream = ExtResource("17_armi2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("18_oqtxi")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("19_d3v6m")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("20_01x3j")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("21_rp46d")
+stream_4/weight = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srvo7"]
 size = Vector2(1280, 1080)
@@ -121,9 +139,6 @@ position = Vector2(20900, 633)
 
 [node name="Collectable" parent="Collectables" instance=ExtResource("8_i7h3f")]
 position = Vector2(1594, 322)
-
-[node name="Collectable10" parent="Collectables" instance=ExtResource("8_i7h3f")]
-position = Vector2(346, 716)
 
 [node name="Collectable2" parent="Collectables" instance=ExtResource("8_i7h3f")]
 position = Vector2(3026, 685)
@@ -293,6 +308,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "0"
 script = ExtResource("16_mocud")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Control/MarginContainer/HBoxContainer/MarginContainer3/ScoreLabel"]
+stream = SubResource("AudioStreamRandomizer_565q6")
+bus = &"SFX"
 
 [node name="Virtual joystick left" parent="UI" instance=ExtResource("17_mqok5")]
 anchors_preset = 0

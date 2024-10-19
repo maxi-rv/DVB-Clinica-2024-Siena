@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv301la4fkkfa"]
 
-[ext_resource type="Script" path="res://scenes/platforms/world_bottom_limit.gd" id="1_mqxra"]
+[ext_resource type="Script" path="res://scripts/world_bottom_limit.gd" id="1_otl3t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7n31"]
 
@@ -8,7 +8,7 @@
 position = Vector2(0, 1024)
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_mqxra")
+script = ExtResource("1_otl3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_f7n31")

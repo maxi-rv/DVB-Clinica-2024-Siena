@@ -12,6 +12,8 @@ var jump_mod_inputdown : float = 5 # Affects gravity ONLY when inputing "Down" o
 @export var joystick_left : VirtualJoystick
 ## Reference to the AnimatedSprite2D Node of the player.
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var collision_shape_2d = $CollisionShape2D
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -23,6 +25,7 @@ var downInput_Threshold : float = 0
 var directionInput : float = 0
 
 var isDead = false
+var isKilled = false
 
 # Animation flags. Blocks script from calling the same animation multiple times.
 var jumpingUp : bool = false
@@ -36,7 +39,9 @@ func _physics_process(delta):
 	if not isDead:
 		handle_animations()
 		handle_movement_input(delta)
-	else:
+	elif not isKilled:
+		isKilled = true
+		collision_shape_2d.disabled = true
 		Gamemanager.reset_score()
 	
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://btwmp5rehe2og"]
+[gd_scene load_steps=11 format=3 uid="uid://btwmp5rehe2og"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_auixo"]
 [ext_resource type="Texture2D" uid="uid://c5n4nu6n60gln" path="res://assets/sprites/backgrounds/fondo 1.png" id="2_0mj4g"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dgjmtjr5p2yu2" path="res://assets/sprites/player/idle/idle_3.png" id="7_se7n7"]
 [ext_resource type="Texture2D" uid="uid://bupbvhkte6lki" path="res://assets/sprites/player/idle/idle_4.png" id="8_6747k"]
 [ext_resource type="Texture2D" uid="uid://b4un1r3yqchok" path="res://assets/sprites/player/idle/idle_5.png" id="9_f8ui1"]
-[ext_resource type="AudioStream" uid="uid://cgixcgcecoj42" path="res://assets/demo 1.mp3" id="10_6ebpa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jy2my"]
 animations = [{
@@ -95,11 +94,6 @@ text = "CREDITS"
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "QUIT"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_6ebpa")
-autoplay = true
-bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

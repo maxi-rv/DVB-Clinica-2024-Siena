@@ -21,8 +21,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	# Engine.time_scale = 0.5
-	print(body.name)
 	if body.name == "Player":
+		body.isDead = true
 		body.get_node("AnimatedSprite2D").play("hurt")
 		body.get_node("CollisionShape2D").queue_free()
 		timer.start()
@@ -31,5 +31,4 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	Engine.time_scale = 1.0
-	Gamemanager.reset_score()
 	get_tree().reload_current_scene()
